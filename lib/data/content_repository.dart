@@ -702,6 +702,58 @@ class ContentRepository {
           evidenceItem: 'High mitochondrial activity detected — cells working overtime!',
         ),
         GameZone(
+          id: 'plant',
+          name: 'Plant Cell Station',
+          pt: 'Estação da Célula Vegetal',
+          intro:
+              'You leap through the gut wall into a plant cell to hide! It looks very different from the animal cells you were just in...',
+          introPt:
+              'Você salta pela parede intestinal para dentro de uma célula vegetal para se esconder! Parece muito diferente das células animais onde você estava...',
+          svgId: 'plant_svg',
+          q: 'Which set of three structures is found in a plant cell but NOT in an animal cell?',
+          qPt:
+              'Qual conjunto de três estruturas está na célula vegetal mas NÃO na célula animal?',
+          opts: [
+            'Nucleus + Mitochondria + Cytoplasm',
+            'Cell Wall + Chloroplasts + Large Vacuole (Parede Celular + Cloroplastos + Vacúolo Grande)',
+            'Cell Membrane + Ribosomes + DNA',
+            'Mitochondria + Nucleus + Cell Membrane'
+          ],
+          ans: 1,
+          feedback:
+              'Correct! Cell Wall (rigid support), Chloroplasts (photosynthesis / fotossíntese) and a Large Permanent Vacuole (stores cell sap) are unique to plant cells!',
+          feedbackPt:
+              'Correto! Parede Celular (suporte rígido), Cloroplastos (fotossíntese) e Vacúolo Grande Permanente (armazena suco celular) são exclusivos das células vegetais!',
+          evidenceItem:
+              'Plant cell confirmed: cell wall, chloroplasts, large vacuole — no animal equivalent!',
+        ),
+        GameZone(
+          id: 'organisation',
+          name: 'Body Hierarchy',
+          pt: 'Hierarquia Corporal',
+          intro:
+              'Zoom out! The cell you were hiding in joins millions of others — you can see layers of organisation forming the body!',
+          introPt:
+              'Zoom out! A célula em que você estava se une a milhões de outras — você pode ver níveis de organização formando o corpo!',
+          svgId: 'organisation_svg',
+          q: 'What is the correct order of biological organisation from SMALLEST to LARGEST?',
+          qPt:
+              'Qual é a ordem correta da organização biológica do MENOR para o MAIOR?',
+          opts: [
+            'Organ → Tissue → Cell → Organism',
+            'Cell → Tissue → Organ → Organism (Célula → Tecido → Órgão → Organismo)',
+            'Tissue → Cell → Organ → Organism',
+            'Organism → Organ → Tissue → Cell'
+          ],
+          ans: 1,
+          feedback:
+              'Correct! Cells → Tissues → Organs → Organ Systems → Organism. The lung cells you saw form lung tissue, which forms the organ (lungs), part of the respiratory system!',
+          feedbackPt:
+              'Correto! Células → Tecidos → Órgãos → Sistemas → Organismo. As células do pulmão formam tecido pulmonar, que forma o órgão (pulmões), parte do sistema respiratório!',
+          evidenceItem:
+              'Organisation levels mapped: Cell → Tissue → Organ → Organism hierarchy confirmed!',
+        ),
+        GameZone(
           id: 'lungs',
           name: 'Lung Tissue',
           pt: 'Tecido Pulmonar',
@@ -725,6 +777,59 @@ class ContentRepository {
               'Correto! Vírus são acelulares! Invadem células hospedeiras para se replicar. ISSO causa o resfriado!',
           evidenceItem:
               'VIRUS identified in lung tissue — invading host cells! Cold confirmed!',
+        ),
+        GameZone(
+          id: 'mrsgren',
+          name: 'MRS GREN Lab',
+          pt: 'Laboratório MRS GREN',
+          intro:
+              'Your bio-scanner picks up the virus again. Is it actually ALIVE? Run a MRS GREN analysis to find out!',
+          introPt:
+              'Seu bio-scanner detecta o vírus novamente. Ele está VIVO? Execute uma análise MRS GREN para descobrir!',
+          svgId: 'mrsgren_svg',
+          q:
+              'MRS GREN lists 7 life characteristics. A virus CANNOT do most of them on its own — but it CAN do one inside a host cell. Which one?',
+          qPt:
+              'MRS GREN lista 7 características da vida. Um vírus NÃO consegue fazer a maioria sozinho — mas CONSEGUE fazer uma dentro de uma célula hospedeira. Qual?',
+          opts: [
+            'Nutrition — make its own food (Nutrição)',
+            'Excretion — remove waste (Excreção)',
+            'Reproduction — make copies of itself (Reprodução)',
+            'Sensitivity — respond to stimuli (Sensibilidade)'
+          ],
+          ans: 2,
+          feedback:
+              'Correct! Reproduction is the one MRS GREN characteristic viruses show — but ONLY by hijacking a host cell. That\'s why scientists debate whether viruses are living or non-living!',
+          feedbackPt:
+              'Correto! Reprodução é a única característica MRS GREN que os vírus exibem — mas SOMENTE sequestram uma célula hospedeira. Por isso cientistas debatem se vírus são seres vivos ou não!',
+          evidenceItem:
+              'MRS GREN scan: virus shows Reproduction only — borderline living organism!',
+        ),
+        GameZone(
+          id: 'foodweb',
+          name: 'Food Web Junction',
+          pt: 'Junção da Teia Alimentar',
+          intro:
+              'Heading toward the exit you pass through a miniature gut ecosystem — a full food chain is playing out between organisms!',
+          introPt:
+              'Rumo à saída, você atravessa um ecossistema intestinal em miniatura — uma cadeia alimentar completa acontece entre os organismos!',
+          svgId: 'foodweb_svg',
+          q: 'In the food chain:  Leaf → Caterpillar → Robin → Hawk,  what is the Robin?',
+          qPt:
+              'Na cadeia alimentar:  Folha → Lagarta → Tordo → Falcão,  o que é o Tordo?',
+          opts: [
+            'Producer (Produtor) — makes its own food',
+            'Primary Consumer (Consumidor Primário) — eats plants',
+            'Secondary Consumer (Consumidor Secundário) — eats a plant-eater',
+            'Decomposer (Decompositor) — breaks down dead matter'
+          ],
+          ans: 2,
+          feedback:
+              'Correct! Leaf = Producer (makes food by photosynthesis). Caterpillar = Primary Consumer (eats plants). Robin = Secondary Consumer (eats the caterpillar). Hawk = Tertiary Consumer!',
+          feedbackPt:
+              'Correto! Folha = Produtor (fotossíntese). Lagarta = Consumidor Primário. Tordo = Consumidor Secundário (come a lagarta). Falcão = Consumidor Terciário!',
+          evidenceItem:
+              'Food chain mapped: Leaf(Producer) → Caterpillar(1°) → Robin(2°) → Hawk(3°) confirmed!',
         ),
         GameZone(
           id: 'ecology',
