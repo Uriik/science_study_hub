@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import '../data/content_repository.dart';
+import '../data/svg_provider.dart';
 import '../models/models.dart';
 
 class GameScreen extends StatefulWidget {
@@ -188,6 +190,9 @@ class _GameScreenState extends State<GameScreen> {
         ),
         const SizedBox(height: 14),
 
+        // Scene illustration
+        _buildSceneImage(zone.svgId),
+
         // Question
         Text(zone.q,
             style: const TextStyle(
@@ -276,6 +281,26 @@ class _GameScreenState extends State<GameScreen> {
           ),
         ],
       ],
+    );
+  }
+
+  Widget _buildSceneImage(String svgId) {
+    final svgContent = SvgProvider.getSvg(svgId);
+    if (svgContent.isEmpty) return const SizedBox.shrink();
+    return Container(
+      width: double.infinity,
+      height: 130,
+      margin: const EdgeInsets.only(bottom: 14),
+      clipBehavior: Clip.hardEdge,
+      decoration: BoxDecoration(
+        color: const Color(0xFF060e18),
+        borderRadius: BorderRadius.circular(8),
+        border: Border.all(color: const Color(0xFF1a3358), width: 1),
+      ),
+      child: SvgPicture.string(
+        svgContent,
+        fit: BoxFit.contain,
+      ),
     );
   }
 
