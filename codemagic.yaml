@@ -1,0 +1,45 @@
+workflows:
+  # ── Android (builds on every push) ──────────────────────────────────────
+  android-release:
+    name: Android Release APK
+    max_build_duration: 30
+    instance_type: mac_mini_m2
+    environment:
+      flutter: stable
+      java: 17
+    scripts:
+      - name: Get packages
+        script: flutter pub get
+      - name: Build release APK
+        script: flutter build apk --release
+    artifacts:
+      - build/app/outputs/flutter-apk/app-release.apk
+    publishing:
+      email:
+        recipients:
+          - gabri@example.com   # ← change to your email
+
+  # ── iOS (no Mac needed — Codemagic provides one) ─────────────────────────
+  ios-release:
+    name: iOS Release IPA
+    max_build_duration: 60
+    instance_type: mac_mini_m2
+    environment:
+      flutter: stable
+      xcode: latest
+      cocoapods: default
+    scripts:
+      - name: Get packages
+        script: flutter pub get
+      - name: Install pods
+        script: find . -name "Podfile" -execdir pod install \;
+      - name: Build iOS (no code signing — simulator/ad-hoc)
+        script: |
+          flutter build ios --release --no-codesign
+    artifacts:
+      - build/ios/iphoneos/Runner.app
+    publishing:
+      email:
+        recipients:
+          - gabri@example.com   # ← change to your email
+
